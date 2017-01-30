@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+#Raspberry
+##Raspbian configuratie
+Basisconfiguratie van Raspbian aanpassen.
 
-You can use the [editor on GitHub](https://github.com/eakoning/Raspberry-Pi/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+`sudo raspi-config`
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In principe hoef je niets te configureren in je Raspberry om een USB WiFi adapter te installeren. Om te kijken of de adapter WLAN's herkent, kun je het volgende statement gebruiken om te scannen en alle beschikbare SSID's te tonen.
 
-### Markdown
+`sudo iwlist wlan0 scan | grep ESSID`
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+##Keyboard configuration
+- Internationalisation Options
+- Change Keyboard Layout
+- Dell 101-key PC
+- English (US) - English (US, with euro on 5)
+- Right Alt (AltGr)
+- No Compose key
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+##clean up input history
+history -c
 
-**Bold** and _Italic_ and `Code` text
+##aliasen
+in de home folder (~) vind je het .bashrc bestand.
 
-[Link](url) and ![Image](src)
-```
+daarin zijn de aliasen gedefinieerd.  
+wijzigingen kun je doen dmv `sudo nano ~/.bashrc`
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+> Opnieuw laden van settings in je .bashrc file kan dmv de **dot source notatie**.  
+_Let op de punt (vandaar de dot) waarmee het commando begint._
 
-### Jekyll Themes
+`. ~/.bashrc`
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eakoning/Raspberry-Pi/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+##config.txt aanpassen
+Makkelijkste via `sudo nano /boot/config.txt
 
-### Support or Contact
+##Herstart
+`sudo reboot`
+##Afsluiten
+`sudo shutdown -h now`
+##Netwerk configuratie opvragen
+`ifconfig`
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#Adafruit examples
+##Prerequisites installeren
+* Pyton-dev
+* GPIO
+
+`sudo apt-get install python-dev python-rpi.gpio`
+
+> Voor installatie van de LCD Module open je de map  
+ **/home/pi/Adafruit_Python_CharLCD**  
+ Vanuit die map start je het volgende commando:
+
+`sudo python setup.py install` 
+
+##Terug naar de prompt
+Veel commando's (waaronder python) starten een nieuwe command line interface. Om weer terug te keren naar je bash command prompt kun je **Ctrl-D** gebruiken.
+
+#Adafruit onderdelen
+##18B20 Thermometer sensoren gebruiken
+Je zult de Device Tree van de Pi moeten configureren voor gebruik met de 18B20 modules.  
+Voeg `dtoverlay=w1-gpio toe aan config.txt  
+Default wordt de w1 module geïnitialiseerd op GPIO pin 4. Zorg dus dat ze daarop worden aangesloten. 
+
+##Libraries
+Een gemakkelijke library voor het uitlezen van deze sensoren is de **w1thermsensor**
+https://github.com/timofurrer/w1thermsensor  
+Voor het installeren gebruik je:  
+`sudo apt-get install python-w1thermsensor`
