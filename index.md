@@ -1,5 +1,5 @@
-#Raspberry
-##Raspbian configuratie
+# Raspberry
+## Raspbian configuratie
 Basisconfiguratie van Raspbian aanpassen.
 
 `sudo raspi-config`
@@ -8,7 +8,7 @@ In principe hoef je niets te configureren in je Raspberry om een USB WiFi adapte
 
 `sudo iwlist wlan0 scan | grep ESSID`
 
-##Keyboard configuration
+## Keyboard configuration
 - Internationalisation Options
 - Change Keyboard Layout
 - Dell 101-key PC
@@ -19,10 +19,10 @@ In principe hoef je niets te configureren in je Raspberry om een USB WiFi adapte
 
 
 
-##clean up input history
+## clean up input history
 history -c
 
-##aliasen
+## aliasen
 in de home folder (~) vind je het .bashrc bestand.
 
 daarin zijn de aliasen gedefinieerd.  
@@ -33,18 +33,18 @@ _Let op de punt (vandaar de dot) waarmee het commando begint._
 
 `. ~/.bashrc`
 
-##config.txt aanpassen
+## config.txt aanpassen
 Makkelijkste via `sudo nano /boot/config.txt
 
-##Herstart
+## Herstart
 `sudo reboot`
-##Afsluiten
+## Afsluiten
 `sudo shutdown -h now`
-##Netwerk configuratie opvragen
+## Netwerk configuratie opvragen
 `ifconfig`
 
 #Adafruit examples
-##Prerequisites installeren
+## Prerequisites installeren
 * Pyton-dev
 * GPIO
 
@@ -56,16 +56,16 @@ Makkelijkste via `sudo nano /boot/config.txt
 
 `sudo python setup.py install` 
 
-##Terug naar de prompt
+## Terug naar de prompt
 Veel commando's (waaronder python) starten een nieuwe command line interface. Om weer terug te keren naar je bash command prompt kun je **Ctrl-D** gebruiken.
 
 #Adafruit onderdelen
-##18B20 Thermometer sensoren gebruiken
+## 18B20 Thermometer sensoren gebruiken
 Je zult de Device Tree van de Pi moeten configureren voor gebruik met de 18B20 modules.  
 Voeg `dtoverlay=w1-gpio toe aan config.txt  
 Default wordt de w1 module geïnitialiseerd op GPIO pin 4. Zorg dus dat ze daarop worden aangesloten. 
 
-##Libraries
+## Libraries
 Een gemakkelijke library voor het uitlezen van deze sensoren is de **w1thermsensor**
 https://github.com/timofurrer/w1thermsensor  
 Voor het installeren gebruik je:  
