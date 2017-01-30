@@ -1,4 +1,9 @@
-# Raspberry
+# Raspberry Pi
+
+Installation of Raspbian Jessie Lite
+
+https://www.raspberrypi.org/downloads/raspbian/
+
 ## Raspbian configuratie
 Basisconfiguratie van Raspbian aanpassen.
 
@@ -15,9 +20,6 @@ In principe hoef je niets te configureren in je Raspberry om een USB WiFi adapte
 - English (US) - English (US, with euro on 5)
 - Right Alt (AltGr)
 - No Compose key
-
-
-
 
 ## clean up input history
 history -c
@@ -38,13 +40,17 @@ Makkelijkste via `sudo nano /boot/config.txt
 
 ## Herstart
 `sudo reboot`
+
 ## Afsluiten
 `sudo shutdown -h now`
+
 ## Netwerk configuratie opvragen
 `ifconfig`
 
 #Adafruit examples
+
 ## Prerequisites installeren
+
 * Pyton-dev
 * GPIO
 
@@ -57,9 +63,11 @@ Makkelijkste via `sudo nano /boot/config.txt
 `sudo python setup.py install` 
 
 ## Terug naar de prompt
+
 Veel commando's (waaronder python) starten een nieuwe command line interface. Om weer terug te keren naar je bash command prompt kun je **Ctrl-D** gebruiken.
 
 #Adafruit onderdelen
+
 ## 18B20 Thermometer sensoren gebruiken
 Je zult de Device Tree van de Pi moeten configureren voor gebruik met de 18B20 modules.  
 Voeg `dtoverlay=w1-gpio toe aan config.txt  
@@ -70,3 +78,14 @@ Een gemakkelijke library voor het uitlezen van deze sensoren is de **w1thermsens
 https://github.com/timofurrer/w1thermsensor  
 Voor het installeren gebruik je:  
 `sudo apt-get install python-w1thermsensor`
+
+# Troubleshooting
+
+## PuTTY Fatal Error
+Network error: Connection refused
+Make sure you can ping your raspberry.
+Try logging in on the raspberry directly by connecting a monitor and a keyboard and use 
+`ifconfig`
+
+When connected through Ethernet you should see `eth0` in the list showing an IP address after `inet addr:`.
+This is the address you should be able to use for connecting with SSH, if your machine is on the same subnet.
