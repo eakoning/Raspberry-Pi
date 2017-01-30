@@ -21,6 +21,7 @@ The changes you might want to make
     * Change Timezone
     * Change Keyboard Layout
 
+
 > For reference, the keyboard configuration I use is 
 Dell 101-key PC, English (US) - English (US, with euro on 5)
 
@@ -37,13 +38,13 @@ By using the grep pipe, you can filter down on a specific SSID.
 `history -c`
 
 ### Aliasses
-in de home folder (~) vind je het .bashrc bestand.
+Predefined aliasses are defined in the `~/.bashrc` file in your home folder, hence the `~`.
+Easily edit this file with the command
 
-daarin zijn de aliasen gedefinieerd.  
-wijzigingen kun je doen dmv `sudo nano ~/.bashrc`
+`sudo nano ~/.bashrc`
 
-> Opnieuw laden van settings in je .bashrc file kan dmv de **dot source notatie**.  
-_Let op de punt (vandaar de dot) waarmee het commando begint._
+
+> Reloading the settings of the ~/.bashrc file can be done by using a dot.
 
 `. ~/.bashrc`
 
