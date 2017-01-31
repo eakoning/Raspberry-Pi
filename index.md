@@ -6,6 +6,10 @@ This document describes various steps that were taken by me to get a working ins
 
 https://www.raspberrypi.org/downloads/raspbian/
 
+SSH is disabled by default on Raspbian. To be able to connect to the Raspberry through SSH, right after starting it up for the first time, you can place a file called `ssh` in the `/boot/` folder of the FAT32 partition on the SSD card.
+
+The alternative is using enabling it through raspi-config UI.
+
 ## Raspbian configuration
 Raspbian has a nice User Interface for changing some OS defaults.
 Start it with the command
@@ -15,7 +19,7 @@ Start it with the command
 The changes you might want to make
 
 * Expand Filesystem
-* Change User Password
+* Change User Password (alternatively do this through the command line with the `passwd` command)
 * Internationalisation Options
     * Change Locale
     * Change Timezone
@@ -32,6 +36,11 @@ Use the following command to have it search for available networks.
 By using the grep pipe, you can filter down on a specific SSID.
 
 `sudo iwlist wlan0 scan | grep ESSID`
+
+## Updating existing image with latest bits and pieces
+```sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install -y prompt```
 
 ## Tips and tricks
 
