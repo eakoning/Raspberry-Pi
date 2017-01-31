@@ -20,7 +20,8 @@ The changes you might want to make
     * Change Locale
     * Change Timezone
     * Change Keyboard Layout
-
+* Advanced Options
+    * SSH - Enable
 
 > For reference, the keyboard configuration I use is 
 Dell 101-key PC, English (US) - English (US, with euro on 5)
@@ -55,7 +56,7 @@ This can be easily done through `sudo nano /boot/config.txt`
 `sudo reboot`
 
 ### Shutting down the device
-`sudo shutdown -h now`
+`sudo shutdown now`
 
 ### Netwerk configuratie opvragen
 `ifconfig`
