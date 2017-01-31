@@ -6,9 +6,11 @@ This document describes various steps that were taken by me to get a working ins
 
 https://www.raspberrypi.org/downloads/raspbian/
 
-SSH is disabled by default on Raspbian. To be able to connect to the Raspberry through SSH, right after starting it up for the first time, you can place a file called `ssh` in the `/boot/` folder of the FAT32 partition on the SSD card.
+### Enabling SSH
+SSH is disabled by default on Raspbian. To be able to connect to the Raspberry through SSH, you can either
 
-The alternative is using enabling it through raspi-config UI.
+1. Enable it through raspi-config or
+2. Place a file called `ssh` in the `/boot/` folder of the FAT32 partition on the SSD card. After booting up SSH should be enabled.
 
 ## Raspbian configuration
 Raspbian has a nice User Interface for changing some OS defaults.
@@ -38,9 +40,11 @@ By using the grep pipe, you can filter down on a specific SSID.
 `sudo iwlist wlan0 scan | grep ESSID`
 
 ## Updating existing image with latest bits and pieces
-```sudo apt-get update
+```
+sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get install -y prompt```
+sudo apt-get install -y prompt
+```
 
 ## Tips and tricks
 
@@ -72,43 +76,42 @@ This can be easily done through `sudo nano /boot/config.txt`
 
 # Adafruit examples
 
-## Prerequisites installeren
+## Installing Prerequisites
 
 * Pyton-dev
 * GPIO
 
 `sudo apt-get install python-dev python-rpi.gpio`
 
-> Voor installatie van de LCD Module open je de map  
- **/home/pi/Adafruit_Python_CharLCD**  
- Vanuit die map start je het volgende commando:
+> For installation of the LCD Module, open the folder
+ `/home/pi/Adafruit_Python_CharLCD`
+ Start the following command
 
 `sudo python setup.py install` 
 
-## Terug naar de prompt
+## Back to Bash prompt
 
-Veel commando's (waaronder python) starten een nieuwe command line interface. Om weer terug te keren naar je bash command prompt kun je **Ctrl-D** gebruiken.
+A lot of commands, for instance python, will start a new command line interface. To return to the bash prompt, use `Ctrl-D`.
 
-#Adafruit onderdelen
+## Using 18B20 temperature sensors
+The *Device Tree* of the Pi needs to be configured for usage with the 18B20 modules.  
 
-## 18B20 Thermometer sensoren gebruiken
-Je zult de Device Tree van de Pi moeten configureren voor gebruik met de 18B20 modules.  
-Voeg `dtoverlay=w1-gpio toe aan config.txt  
-Default wordt de w1 module geïnitialiseerd op GPIO pin 4. Zorg dus dat ze daarop worden aangesloten. 
+Add `dtoverlay=w1-gpio` to the `config.txt` file residing on the FAT32 partition of the SD Card.
 
-## Libraries
-Een gemakkelijke library voor het uitlezen van deze sensoren is de **w1thermsensor**
-https://github.com/timofurrer/w1thermsensor  
-Voor het installeren gebruik je:  
+By default the w1 module will be initialised on GPIO pin 4. Make sure the sensors will be connected to this pin.
+
+## 3rd Party Libraries
+A convenient library for reading these sensors is [**w1thermsensor**](https://github.com/timofurrer/w1thermsensor).
+
+To install, run
+
 `sudo apt-get install python-w1thermsensor`
 
 # Troubleshooting
 
 ## PuTTY Fatal Error
 Network error: Connection refused
-Make sure you can ping your raspberry.
-Try logging in on the raspberry directly by connecting a monitor and a keyboard and use 
-`ifconfig`
 
-When connected through Ethernet you should see `eth0` in the list showing an IP address after `inet addr:`.
-This is the address you should be able to use for connecting with SSH, if your machine is on the same subnet.
+**Solution:** Please bear in mind that SSH is disabled by default on Raspbian. [Enabling SSH](#enabling-ssh)
+
+Still unable to connect? You might need to connect a keyboard and a monitor to your Pi.
