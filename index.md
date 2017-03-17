@@ -66,7 +66,6 @@ Easily edit this file with the command
 
 `sudo nano ~/.bashrc`
 
-
 > Reloading the settings of the ~/.bashrc file can be done by using a dot.
 
 `. ~/.bashrc`
@@ -81,8 +80,8 @@ This can be easily done through `sudo nano /boot/config.txt`
 `sudo shutdown now`
 
 ### Check Network interface information
-`ifconfig`
-`ifconfig wlan0`
+```ifconfig
+ifconfig wlan0```
 
 ### Restart network
 `sudo wpa_cli reconfigure`
