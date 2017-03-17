@@ -39,6 +39,15 @@ By using the grep pipe, you can filter down on a specific SSID.
 
 `sudo iwlist wlan0 scan | grep ESSID`
 
+The file `/etc/wpa_supplicant/wpa_supplicant.conf` holds the wireless network configurations.
+
+It's possible to create such a file with the following command:
+(this command only works as root, use `sudo su` to change user, when running as root, changing back is as simple as `su pi` or whatever user you're using).
+
+`wpa_passphrase MyNetwork MyPassword >> /etc/wpa_supplicant/wpa_supplicant.conf`
+
+> Be advised that the generated file does actually contain the password, but it's commented out. Modify with `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`.
+
 ## Updating existing image with latest bits and pieces
 ```
 sudo apt-get update
@@ -71,8 +80,12 @@ This can be easily done through `sudo nano /boot/config.txt`
 ### Shutting down the device
 `sudo shutdown now`
 
-### Netwerk configuratie opvragen
+### Check Network interface information
 `ifconfig`
+`ifconfig wlan0`
+
+### Restart network
+`sudo wpa_cli reconfigure`
 
 # Adafruit examples
 
@@ -81,7 +94,7 @@ This can be easily done through `sudo nano /boot/config.txt`
 * Pyton-dev
 * GPIO
 
-`sudo apt-get install python-dev python-rpi.gpio`
+`sudo apt-get -y install git python-dev python-rpi.gpio`
 
 > For installation of the LCD Module, open the folder
  `/home/pi/Adafruit_Python_CharLCD`
