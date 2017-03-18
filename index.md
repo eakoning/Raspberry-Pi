@@ -1,10 +1,11 @@
 # Raspberry Pi
 
-## Introduction
+## Setup
 
-This document describes various steps that were taken by me to get a working installation of Raspbian Jessie Lite with Docker running different containers.
-
+### Download Raspbian
 https://www.raspberrypi.org/downloads/raspbian/
+
+Install on SD Card with for instance *Win32DiskImager*.
 
 ### Enabling SSH
 SSH is disabled by default on Raspbian. To be able to connect to the Raspberry through SSH, you can either
