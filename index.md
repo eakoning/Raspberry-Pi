@@ -61,8 +61,8 @@ sudo apt-get install -y prompt
 ### Clear input history
 `history -c`
 
-### Aliasses
-Predefined aliasses are defined in the `~/.bashrc` file in your home folder, hence the `~`.
+### Aliases
+Predefined aliases are defined in the `~/.bashrc` file in your home folder, hence the `~`.
 Easily edit this file with the command
 
 `sudo nano ~/.bashrc`
