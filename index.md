@@ -145,3 +145,15 @@ Network error: Connection refused
 **Solution:** Please bear in mind that SSH is disabled by default on Raspbian. [Enabling SSH](#enabling-ssh)
 
 Still unable to connect? You might need to connect a keyboard and a monitor to your Pi.
+
+# Installing Node
+
+Untested with Raspberry Pi Zero W (which turns out to run on ARM6 and does not work with the install script as described on nodejs.org).
+
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
+sudo apt-add-repository "deb https://deb.nodesource.com/node_7.x $(lsb_release -sc) main"
+sudo apt-get update
+sudo apt-get install nodejs
+```
+[How to Install the Latest Versions of NodeJS and NPM for Ubuntu 14.04 LTS](http://askubuntu.com/questions/594656/how-to-install-the-latest-versions-of-nodejs-and-npm-for-ubuntu-14-04-lts)
