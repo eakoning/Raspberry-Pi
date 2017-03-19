@@ -81,8 +81,11 @@ This can be easily done through `sudo nano /boot/config.txt`
 `sudo shutdown now`
 
 ### Check Network interface information
-```ifconfig
-ifconfig wlan0```
+`ifconfig`
+`ifconfig wlan0`
+
+### Check Which Wireless network is being used
+`iwconfig`
 
 ### Restart network
 `sudo wpa_cli reconfigure`
