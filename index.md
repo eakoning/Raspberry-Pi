@@ -151,7 +151,7 @@ Still unable to connect? You might need to connect a keyboard and a monitor to y
 Untested with Raspberry Pi Zero W (which turns out to run on ARM6 and does not work with the install script as described on nodejs.org).
 
 ```
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
+sudo apt-key adv --keyserver keyserver.[debian ??].com --recv 68576280 <-- which number should this be??
 sudo apt-add-repository "deb https://deb.nodesource.com/node_7.x $(lsb_release -sc) main"
 sudo apt-get update
 sudo apt-get install nodejs
