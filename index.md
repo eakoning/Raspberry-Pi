@@ -51,9 +51,8 @@ It's possible to create such a file with the following command:
 
 ## Updating existing image with latest bits and pieces
 ```
-sudo apt-get update
-sudo apt-get dist-upgrade
-sudo apt-get install -y prompt
+sudo apt update
+sudo apt full-upgrade
 ```
 
 ## Tips and tricks
