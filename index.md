@@ -80,9 +80,10 @@ This can be easily done through `sudo nano /boot/config.txt`
 ### Shutting down the device
 `sudo shutdown now`
 
-### Check Network interface information
+### Check Network interface information (IP Address etc)
 `ifconfig`
-`ifconfig wlan0`
+
+`ifconfig wlan0` (for a specific interface)
 
 ### Check Which Wireless network is being used
 `iwconfig`
