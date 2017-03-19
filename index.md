@@ -58,8 +58,22 @@ sudo apt-get install -y prompt
 
 ## Tips and tricks
 
-### Clear input history
-`history -c`
+### Command Line
+`history -c` clears the complete history.
+
+`history [n]` shows the history where [n] (optional) specifies the last number of items to show.
+
+`![number]` executes a specific item from the history.
+
+`!!` repeat the last command.
+
+`history | grep [Text]` finds all commands with the specified (or part of) text.
+
+`![text]` will repeat the **last** command starting with the specified text.
+
+`Ctrl-R` starts reverse search in history. Type a few characters to search and press `Ctrl-R` to loop through the results. Press `Enter` to execute the selected command. Use arrow `left` or `right` to display the command on the command line to edit it.
+
+`Ctrl-U` clears the command line.
 
 ### Aliases
 Predefined aliases are defined in the `~/.bashrc` file in your home folder, hence the `~`.
