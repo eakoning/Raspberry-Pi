@@ -126,9 +126,24 @@ A lot of commands, for instance python, will start a new command line interface.
 ## Using 18B20 temperature sensors
 The *Device Tree* of the Pi needs to be configured for usage with the 18B20 modules.  
 
-Add `dtoverlay=w1-gpio` to the `config.txt` file residing on the FAT32 partition of the SD Card.
+Add `dtoverlay=w1-gpio` to the `/boot/config.txt` file residing on the FAT32 partition of the SD Card.
 
-By default the w1 module will be initialised on GPIO pin 4. Make sure the sensors will be connected to this pin.
+Editing can be done with the following command: `sudo nano /boot/config.txt`. **Don't forget to reboot after editing the config.txt**.
+
+> By default the w1 module will be initialised on **GPIO pin 4**. Make sure the sensors will be connected to this pin.
+
+### Testing the sensors
+
+```
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+cd /sys/bus/w1/devices
+ls
+cd 28-xxxx (change this to match what serial number pops up)
+cat w1_slave
+```
+
+The contents of the file will show the temperature measured by the sensor.
 
 ## 3rd Party Libraries
 A convenient library for reading these sensors is [**w1thermsensor**](https://github.com/timofurrer/w1thermsensor).
