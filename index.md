@@ -172,3 +172,11 @@ sudo apt-get update
 sudo apt-get install nodejs
 ```
 [How to Install the Latest Versions of NodeJS and NPM for Ubuntu 14.04 LTS](http://askubuntu.com/questions/594656/how-to-install-the-latest-versions-of-nodejs-and-npm-for-ubuntu-14-04-lts)
+
+## Debian Jessie Pixel
+
+### Tips & Tricks
+
+No mouse available? There are certain shortcuts available.
+
+- Open a Terminal (_LXTerminal_) with the shortcut `Ctrl-Alt-T`.
